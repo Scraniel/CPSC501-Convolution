@@ -13,27 +13,27 @@ void WavData::loadWaveFile(char *fileName)
     if (fp) {
         char id[5];
         unsigned long fsize;
-        fread(id, sizeof(char), 4, fp);
+        fread(id, sizeof(unsigned char), 4, fp);
         id[4] = '\0';
 
         if (!strcmp(id, "RIFF")) {
-            fread(&fsize, sizeof(unsigned long), 1, fp);
-            fread(id, sizeof(char), 4, fp);
+            fread(&fsize, sizeof(unsigned char)*4, 1, fp);
+            fread(id, sizeof(unsigned char), 4, fp);
             id[4] = '\0';
 
             if (!strcmp(id,"WAVE")) {
-                fread(id, sizeof(char), 4, fp);
-                fread(&formatLength, sizeof(unsigned long),1,fp);
+                fread(id, sizeof(unsigned char), 4, fp);
+                fread(&formatLength, sizeof(unsigned char)*4,1,fp);
                 fread(&formatTag, sizeof(short), 1, fp);
                 fread(&channels, sizeof(short),1,fp);
-                fread(&sampleRate, sizeof(unsigned long), 1, fp);
-                fread(&avgBytesSec, sizeof(unsigned long), 1, fp);
+                fread(&sampleRate, sizeof(unsigned char)*4, 1, fp);
+                fread(&avgBytesSec, sizeof(unsigned char)*4, 1, fp);
                 fread(&blockAlign, sizeof(short), 1, fp);
                 fread(&bitsPerSample, sizeof(short), 1, fp);
-                fread(id, sizeof(char), 4, fp);
+                fread(id, sizeof(unsigned char), 4, fp);
                 if(id[0] == 0 && id[1] == 0)
-                	fread(id, sizeof(char), 2, fp); // sometimes there are 2 extra 0's at the end
-                fread(&dataSize, sizeof(unsigned long), 1, fp);
+                	fread(id, sizeof(unsigned char), 2, fp); // sometimes there are 2 extra 0's at the end
+                fread(&dataSize, sizeof(unsigned char)*4, 1, fp);
 
                 samples = dataSize/(channels * (bitsPerSample/8));
                 data = (short*) malloc(dataSize);
