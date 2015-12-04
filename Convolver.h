@@ -15,11 +15,16 @@ class Convolver {
 public:
 	Convolver();
 
-	static WavData * Convolve(WavData, WavData);
+	static WavData * TimeDomainConvolve(WavData, WavData);
+	static WavData * FFTConvolve(WavData, WavData);
 
 private:
-	static void Convolve(const double[], int, const double[], int, double[], int);
-	static double Normalize(double, double, double, double, double);
+	static void TimeDomainConvolve(const double[], const int &, const double[], const int &, double[], const int &);
+	static void FFTConvolve(double [], unsigned long, int);
+
+	static double Normalize(const double &, const double &, const double &, const double &, const double &);
+	static int NextHighestPowerOf2(int);
+	static double * ZeroPadding(const short [], const int &);
 };
 
 #endif /* CONVOLVER_H_ */

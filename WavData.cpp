@@ -31,7 +31,7 @@ void WavData::loadWaveFile(char *fileName)
                 fread(&blockAlign, sizeof(short), 1, fp);
                 fread(&bitsPerSample, sizeof(short), 1, fp);
                 fread(id, sizeof(unsigned char), 4, fp);
-                if(id[0] == 0 && id[1] == 0)
+                if(formatLength == 18)
                 	fread(id, sizeof(unsigned char), 2, fp); // sometimes there are 2 extra 0's at the end
                 fread(&dataSize, sizeof(unsigned char)*4, 1, fp);
 

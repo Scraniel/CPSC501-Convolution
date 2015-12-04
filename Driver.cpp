@@ -20,7 +20,7 @@ int main()
 			return -1;
 	}
 
-	WavData * convolved = Convolver::Convolve(drySound, impulseResponse);
+	WavData * convolved = Convolver::TimeDomainConvolve(drySound, impulseResponse);
 
 	convolved->writeWaveFile(outputFileStream);
 
