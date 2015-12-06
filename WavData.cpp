@@ -9,45 +9,45 @@
 void WavData::loadWaveFile(char *fileName)
 {
 
-    FILE* fp = fopen(fileName,"rb");
-    if (fp) {
-        char id[5];
-        unsigned long fsize;
-        fread(id, sizeof(unsigned char), 4, fp);
-        id[4] = '\0';
+	FILE* fp = fopen(fileName,"rb");
+	if (fp) {
+		char id[5];
+		unsigned long fsize;
+		fread(id, sizeof(unsigned char), 4, fp);
+		id[4] = '\0';
 
-        if (!strcmp(id, "RIFF")) {
-            fread(&fsize, sizeof(unsigned char)*4, 1, fp);
-            fread(id, sizeof(unsigned char), 4, fp);
-            id[4] = '\0';
+		if (!strcmp(id, "RIFF")) {
+			fread(&fsize, sizeof(unsigned char)*4, 1, fp);
+			fread(id, sizeof(unsigned char), 4, fp);
+			id[4] = '\0';
 
-            if (!strcmp(id,"WAVE")) {
-                fread(id, sizeof(unsigned char), 4, fp);
-                fread(&formatLength, sizeof(unsigned char)*4,1,fp);
-                fread(&formatTag, sizeof(short), 1, fp);
-                fread(&channels, sizeof(short),1,fp);
-                fread(&sampleRate, sizeof(unsigned char)*4, 1, fp);
-                fread(&avgBytesSec, sizeof(unsigned char)*4, 1, fp);
-                fread(&blockAlign, sizeof(short), 1, fp);
-                fread(&bitsPerSample, sizeof(short), 1, fp);
-                fread(id, sizeof(unsigned char), 4, fp);
-                if(formatLength == 18)
-                	fread(id, sizeof(unsigned char), 2, fp); // sometimes there are 2 extra 0's at the end
-                fread(&dataSize, sizeof(unsigned char)*4, 1, fp);
+			if (!strcmp(id,"WAVE")) {
+				fread(id, sizeof(unsigned char), 4, fp);
+				fread(&formatLength, sizeof(unsigned char)*4,1,fp);
+				fread(&formatTag, sizeof(short), 1, fp);
+				fread(&channels, sizeof(short),1,fp);
+				fread(&sampleRate, sizeof(unsigned char)*4, 1, fp);
+				fread(&avgBytesSec, sizeof(unsigned char)*4, 1, fp);
+				fread(&blockAlign, sizeof(short), 1, fp);
+				fread(&bitsPerSample, sizeof(short), 1, fp);
+				fread(id, sizeof(unsigned char), 4, fp);
+				if(id[0] != 'd')
+					fread(id, sizeof(unsigned char), 2, fp); // sometimes there are 2 extra 0's at the end
+				fread(&dataSize, sizeof(unsigned char)*4, 1, fp);
 
-                samples = dataSize/(channels * (bitsPerSample/8));
-                data = (short*) malloc(dataSize);
-                fread(data, sizeof(short), samples, fp);
-                }
-            else {
-            	std::cout << "Error: RIFF file but not a wave file\n";
-                }
-            }
-        else {
-        	std::cout << "Error: not a RIFF file\n";
-            }
-        }
-    fclose(fp);
+				samples = dataSize/(channels * (bitsPerSample/8));
+				data = (short*) malloc(dataSize);
+				fread(data, sizeof(short), samples, fp);
+				}
+			else {
+				std::cout << "Error: RIFF file but not a wave file\n";
+				}
+			}
+		else {
+			std::cout << "Error: not a RIFF file\n";
+			}
+		}
+	fclose(fp);
 }
 
 unsigned long WavData::getNumberOfSamples()

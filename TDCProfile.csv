@@ -1,0 +1,70 @@
+Hierarchy;Name (location);Samples;Calls;Time/Call;% Time
++-;Summary;16439;;;100.0
+  +-;??;0;;;0.0
+  | +-;__libc_csu_init;0;0;;0.0
+  +-;Convolver.cpp;16437;;;99.98783
+  | +-;Convolver::Normalize(double const&, double const&, double const&, double const&, double const&);0;639974;0ns;0.0
+  | +-;Convolver::TimeDomainConvolve(WavData, WavData);1;1;10.000ms;0.006083095
+  | | +-;Convolver::TimeDomainConvolve(WavData, WavData) (Convolver.cpp:92);1;;;0.006083095
+  | |   +-;0x40147c;1;;;0.006083095
+  | +-;Convolver::TimeDomainConvolve(double const*, int const&, double const*, int const&, double*, int const&);16436;1;2min 44s;99.98175
+  | | +-;Convolver::TimeDomainConvolve(double const*, int const&, double const*, int const&, double*, int const&) (Convolver.cpp:140);1;;;0.006083095
+  | | | +-;0x40177c;1;;;0.006083095
+  | | +-;Convolver::TimeDomainConvolve(double const*, int const&, double const*, int const&, double*, int const&) (Convolver.cpp:141);2990;;;18.188454
+  | | | +-;0x401790;35;;;0.21290833
+  | | | +-;0x401794;1493;;;9.082061
+  | | | +-;0x401798;13;;;0.07908024
+  | | | +-;0x401810;1443;;;8.777906
+  | | | +-;0x401814;6;;;0.03649857
+  | | +-;Convolver::TimeDomainConvolve(double const*, int const&, double const*, int const&, double*, int const&) (Convolver.cpp:142);13445;;;81.78722
+  | |   +-;0x40179c;102;;;0.6204757
+  | |   +-;0x4017a0;1445;;;8.790072
+  | |   +-;0x4017a4;13;;;0.07908024
+  | |   +-;0x4017ac;25;;;0.15207738
+  | |   +-;0x4017b0;1485;;;9.033396
+  | |   +-;0x4017b4;3;;;0.018249284
+  | |   +-;0x4017b8;1;;;0.006083095
+  | |   +-;0x4017bc;1509;;;9.179391
+  | |   +-;0x4017c0;8;;;0.04866476
+  | |   +-;0x4017c8;8;;;0.04866476
+  | |   +-;0x4017cc;18;;;0.109495714
+  | |   +-;0x4017d0;1482;;;9.015147
+  | |   +-;0x4017d4;196;;;1.1922866
+  | |   +-;0x4017d8;37;;;0.22507451
+  | |   +-;0x4017e0;1416;;;8.613663
+  | |   +-;0x4017e4;90;;;0.54747856
+  | |   +-;0x4017ec;45;;;0.27373928
+  | |   +-;0x4017f0;1471;;;8.948233
+  | |   +-;0x4017f8;2;;;0.01216619
+  | |   +-;0x4017fc;43;;;0.26157308
+  | |   +-;0x401800;1364;;;8.297341
+  | |   +-;0x401804;113;;;0.68738973
+  | |   +-;0x401808;792;;;4.8178115
+  | |   +-;0x40180c;1777;;;10.80966
+  | +-;_GLOBAL__sub_I__ZN9ConvolverC2Ev;0;1;0ns;0.0
+  | +-;__static_initialization_and_destruction_0(int, int);0;1;0ns;0.0
+  +-;Driver.cpp;0;;;0.0
+  | +-;_GLOBAL__sub_I_main;0;1;0ns;0.0
+  | +-;__static_initialization_and_destruction_0(int, int);0;1;0ns;0.0
+  | +-;main;0;0;;0.0
+  +-;WavData.cpp;2;;;0.01216619
+  | +-;WavData::fwriteIntLSB(int, _IO_FILE*);0;5;0ns;0.0
+  | +-;WavData::fwriteShortLSB(short, _IO_FILE*);0;639978;0ns;0.0
+  | +-;WavData::getBitsPerSample();0;3;0ns;0.0
+  | +-;WavData::getChannels();0;3;0ns;0.0
+  | +-;WavData::getData();0;1919923;0ns;0.0
+  | +-;WavData::getNumberOfSamples();2;3199887;6ns;0.01216619
+  | | +-;WavData::getNumberOfSamples() (WavData.cpp:54);2;;;0.01216619
+  | |   +-;0x4025b0;2;;;0.01216619
+  | +-;WavData::getSampleRate();0;2;0ns;0.0
+  | +-;WavData::loadWaveFile(char*);0;2;0ns;0.0
+  | +-;WavData::setBitsPerSample(short);0;1;0ns;0.0
+  | +-;WavData::setChannels(short);0;1;0ns;0.0
+  | +-;WavData::setData(short*);0;1;0ns;0.0
+  | +-;WavData::setNumSamples(unsigned long);0;1;0ns;0.0
+  | +-;WavData::setSampleRate(unsigned long);0;1;0ns;0.0
+  | +-;WavData::writeWaveFile(_IO_FILE*);0;1;0ns;0.0
+  | +-;_GLOBAL__sub_I__ZN7WavData12loadWaveFileEPc;0;1;0ns;0.0
+  | +-;__static_initialization_and_destruction_0(int, int);0;1;0ns;0.0
+  +-;WavData.h;0;;;0.0
+    +-;WavData::WavData();0;3;0ns;0.0

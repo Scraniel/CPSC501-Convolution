@@ -23,8 +23,9 @@ private:
 	static void FFTConvolve(double [], unsigned long, int);
 
 	static double Normalize(const double &, const double &, const double &, const double &, const double &);
-	static int NextHighestPowerOf2(int);
-	static double * ZeroPadding(const short [], const int &);
+	static long NextHighestPowerOf2(long);
+	static double * ZeroPadding(const short [], const int &, const int &);
+	static double * ComplexMultiplication(const double [], const double [], const int & );
 };
 
 #endif /* CONVOLVER_H_ */
