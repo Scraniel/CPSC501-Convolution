@@ -24,9 +24,9 @@ private:
 	static void FFTConvolve(double [], unsigned long, int);
 
 	static double Normalize(const double &, const double &, const double &, const double &, const double &);
-	static long NextHighestPowerOf2(long);
-	static double * ZeroPadding(const short [], const int &, const int &);
-	static double * ComplexMultiplication(const double [], const double [], const int & );
+	inline static long NextHighestPowerOf2(long);
+	inline static double * ZeroPadding(const short [], const int &, const int &);
+	inline static double * ComplexMultiplication(const double [], const double [], const int & );
 	static void FindMinMaxAndScale(double [], const int &, double &, double &, const double &);
 
 	/*** TESTS ***/

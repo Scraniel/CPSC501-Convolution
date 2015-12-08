@@ -44,7 +44,7 @@ class WavData {
         unsigned long formatLength, sampleRate, avgBytesSec, dataSize;
 
         size_t fwriteIntLSB(int, FILE*);
-        size_t fwriteShortLSB(short int, FILE*);
+        inline size_t fwriteShortLSB(short int, FILE*);
 
 
 };
