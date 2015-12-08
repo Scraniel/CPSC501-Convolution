@@ -61,13 +61,14 @@ WavData * Convolver::FFTConvolve(WavData drySound, WavData impulseResponse)
 	double min, max;
 	FindMinMaxAndScale(multiplied, newsize, min, max, drySound.getNumberOfSamples());
 
-	// Normalize the values between -1 and 1
-	for(int i = 0; i < newsize; i++)
-		multiplied[i] = Normalize(multiplied[i], min, max, -1, 1);
 
-	// Scale the data back to short
-	for(int i = 0; i < convolved->getNumberOfSamples()*2; i+=2)
+	// Jamming optimization
+	// Normalize the values between -1 and 1
+	for(int i = 0; i < newsize; i+=2)
+	{
+		multiplied[i] = Normalize(multiplied[i], min, max, -1, 1);
 		convolved->getData()[i/2] = rint(multiplied[i] * SHRT_MAX);
+	}
 
 	delete[] drySoundPadded;
 	delete[] impulseResponsePadded;
