@@ -200,6 +200,11 @@ void Convolver::FFTConvolve(double data[], unsigned long nn, int isign)
 
 double Convolver::Normalize(const double & value, const double & oldMin, const double & oldMax, const double & newMin, const double & newMax)
 {
+	if(oldMax == oldMin)
+		return oldMax;
+	if(newMin == newMax)
+		return newMax;
+
 	double a = (newMax - newMin) / (oldMax - oldMin);
 	double b = newMax - a * oldMax;
 
@@ -208,6 +213,9 @@ double Convolver::Normalize(const double & value, const double & oldMin, const d
 
 long Convolver::NextHighestPowerOf2(long number)
 {
+	if(!number)
+		return 2;
+
 	number--;
 	number |= number >> 1;
 	number |= number >> 2;
@@ -220,7 +228,7 @@ long Convolver::NextHighestPowerOf2(long number)
 }
 
 // returns a zero padded (double) array representing the original array as
-// series of complex numbers. The length is guaranteed to be a power of 2
+// series of complex numbers. The new length must be at least 2 * the original length.
 double * Convolver::ZeroPadding(const short toPad[], const int & size, const int & newsize)
 {
 	double * padded = new double [newsize];
@@ -251,3 +259,234 @@ double * Convolver::ComplexMultiplication(const double first[], const double sec
 
 	return multiplied;
 }
+
+/***********************************************************************************/
+/*** TEST DEFINITIONS - These tests can be run by invoking Convolver::RunTests() ***/
+/***********************************************************************************/
+
+
+	bool Convolver::RunTests()
+	{
+		bool result = true;
+
+		result &= test_Normalize();
+		result &= test_NextHighestPowerOf2();
+		result &= test_ZeroPadding();
+		result &= test_ComplexMultiplication();
+		result &= test_TimeDomainConvolve();
+		result &= test_FFTConvolve();
+
+		if(!result)
+			std::cerr << "One or more tests failed. Check the console to see details." << std::endl;
+
+		return result;
+	}
+
+	bool Convolver::test_Normalize()
+	{
+
+		bool passed = true;
+		double value, min, max, newMin, newMax, result, expected;
+
+		// Edge case: All Zero
+		value = 0;
+		min = 0;
+		max = 0;
+		newMin = 0;
+		newMax = 0;
+		expected = 0;
+		result = Normalize(value, min, max, newMin, newMax);
+
+		if(result != expected)
+		{
+			std::cerr << "test_Normalize() failed on test 'All Zero'. Result: " << result << std::endl;
+			passed = false;
+		}
+
+		// Typical case: moving a number between -1 and 1
+		value = 75;
+		min = 0;
+		max = 100;
+		newMin = -1;
+		newMax = 1;
+		expected = 0.5;
+		result = Normalize(value, min, max, newMin, newMax);
+
+		if(result != expected)
+		{
+			std::cerr << "test_Normalize() failed on test 'Typical Case: -1 -> 1'. Result: " << result << std::endl;
+			passed = false;
+		}
+
+		return passed;
+	}
+
+	bool Convolver::test_NextHighestPowerOf2()
+	{
+		bool passed = true;
+		long value, result, expected;
+
+		// Edge case: 0
+		value = 0;
+		expected = 2;
+		result = NextHighestPowerOf2(value);
+
+		if(result != expected)
+		{
+			std::cerr << "test_NextHighestPowerOf2() failed on test 'Edge case: 0'. Result: " << result << std::endl;
+			passed = false;
+		}
+
+		// Typical case: high number
+		value = 10000000;
+		expected = 16777216;
+		result = NextHighestPowerOf2(value);
+
+		if(result != expected)
+		{
+			std::cerr << "test_NextHighestPowerOf2() failed on test 'Typical Case: high number'. Result: " << result << std::endl;
+			passed = false;
+		}
+
+		return passed;
+	}
+
+	bool Convolver::test_ZeroPadding()
+	{
+
+		bool passed = true;
+		double * result;
+		int size, newSize;
+
+		// Edge Case: newLength = 2*length
+		size = 5;
+		newSize = 10;
+		short value1[] = {1,2,3,4,5};
+		double expected1[] = {1,0,2,0,3,0,4,0,5,0};
+		result = ZeroPadding(value1, size, newSize);
+
+		for(int i = 0; i < newSize; i++)
+		{
+			if(result[i] != expected1[i])
+			{
+				std::cerr << "test_ZeroPadding failed on test 'Edge Case: newLength = 2*length'. Result: {";
+				for(int i = 0; i < newSize; i++)
+				{
+					std::cerr << result[i];
+					if(i < newSize -1)
+						std::cerr << ", ";
+				}
+				std::cerr << "}\n";
+
+				passed = false;
+				break;
+			}
+		}
+		delete[] result;
+
+		// Typical case: newLength is a power of 2, 0's at end
+		size = 5;
+		newSize = 16;
+		short value2[] = {1,2,3,4,5};
+		double expected2[] = {1,0,2,0,3,0,4,0,5,0,0,0,0,0,0,0};
+
+		result = ZeroPadding(value2, size, newSize);
+
+		for(int i = 0; i < newSize; i++)
+		{
+			if(result[i] != expected2[i])
+			{
+				std::cerr << "test_ZeroPadding failed on test 'Typical case: newLength is a power of 2, 0's at end'. Result: {";
+				for(int i = 0; i < newSize; i++)
+				{
+					std::cerr << result[i];
+					if(i < newSize -1)
+						std::cerr << ", ";
+				}
+				std::cerr << "}\n";
+
+				passed = false;
+				break;
+			}
+		}
+		delete[] result;
+
+		return passed;
+	}
+
+	bool Convolver::test_ComplexMultiplication()
+	{
+		bool passed = true;
+
+		int length;
+		double * result;
+
+		// Edge Case: One number each
+		length = 2;
+		double value1[] = {3,4};
+		double value2[] = {7,1};
+		double expected1[] = {17,31};
+
+		result = ComplexMultiplication(value1, value2, length);
+
+		for(int i = 0; i < length; i++)
+		{
+			if(result[i] != expected1[i])
+			{
+				std::cerr << "test_ComplexMuliplication failed on test 'Edge Case: One number each'. Result: {";
+				for(int i = 0; i < length; i++)
+				{
+					std::cerr << result[i];
+					if(i < length -1)
+						std::cerr << ", ";
+				}
+				std::cerr << "}\n";
+
+				passed = false;
+				break;
+			}
+		}
+		delete[] result;
+
+		// Typical Case: multiple numbers, some imaginary 0s and negatives
+		length = 6;
+		double value3[] = {3,4,5,6,7,8};
+		double value4[] = {7,1,8,0,9,-1};
+		double expected2[] = {17,31,40,48,71,65};
+
+		result = ComplexMultiplication(value3, value4, length);
+
+		for(int i = 0; i < length; i++)
+		{
+			if(result[i] != expected2[i])
+			{
+				std::cerr << "test_ComplexMuliplication failed on test 'Typical Case: multiple numbers, some imaginary 0s and negatives'. Result: {";
+				for(int i = 0; i < length; i++)
+				{
+					std::cerr << result[i];
+					if(i < length -1)
+						std::cerr << ", ";
+				}
+				std::cerr << "}\n";
+
+				passed = false;
+				break;
+			}
+		}
+		delete [] result;
+
+
+		return passed;
+	}
+
+	bool Convolver::test_TimeDomainConvolve()
+	{
+
+		return true;
+	}
+
+	bool Convolver::test_FFTConvolve()
+	{
+		return true;
+	}
+

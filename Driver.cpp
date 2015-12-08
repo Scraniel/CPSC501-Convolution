@@ -19,13 +19,17 @@ int main()
 			return -1;
 	}
 
+
+	std::cout << "Running tests...\n";
+	if(!Convolver::RunTests())
+		return 1;
+	std::cout << "Tests Passed! Continuing program.\n";
+
+
 	//WavData * convolved = Convolver::TimeDomainConvolve(drySound, impulseResponse);
+	//WavData * convolved = Convolver::FFTConvolve(drySound, impulseResponse);
 
-	WavData * convolved = Convolver::FFTConvolve(drySound, impulseResponse);
-
-
-
-	convolved->writeWaveFile(outputFileStream);
+	//convolved->writeWaveFile(outputFileStream);
 
 	fclose(outputFileStream);
 

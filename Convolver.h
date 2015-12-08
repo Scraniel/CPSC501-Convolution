@@ -17,6 +17,7 @@ public:
 
 	static WavData * TimeDomainConvolve(WavData, WavData);
 	static WavData * FFTConvolve(WavData, WavData);
+	static bool RunTests();
 
 private:
 	static void TimeDomainConvolve(const double[], const int &, const double[], const int &, double[], const int &);
@@ -26,6 +27,14 @@ private:
 	static long NextHighestPowerOf2(long);
 	static double * ZeroPadding(const short [], const int &, const int &);
 	static double * ComplexMultiplication(const double [], const double [], const int & );
+
+	/*** TESTS ***/
+	static bool test_Normalize();
+	static bool test_NextHighestPowerOf2();
+	static bool test_ZeroPadding();
+	static bool test_ComplexMultiplication();
+	static bool test_TimeDomainConvolve();
+	static bool test_FFTConvolve();
 };
 
 #endif /* CONVOLVER_H_ */
