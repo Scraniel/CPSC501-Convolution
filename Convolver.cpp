@@ -69,12 +69,12 @@ WavData * Convolver::FFTConvolve(WavData drySound, WavData impulseResponse)
 
 	double * impulseResponsePadded = ZeroPadding(impulseResponse.getData(), impulseResponse.getNumberOfSamples(), newsize);
 
-	FFTConvolve(drySoundPadded-1, newsize/2, 1);
-	FFTConvolve(impulseResponsePadded-1, newsize/2, 1);
+	FFTConvolve(drySoundPadded-1, newsize >> 1, 1);
+	FFTConvolve(impulseResponsePadded-1, newsize >> 1, 1);
 
 	double * multiplied = ComplexMultiplication(drySoundPadded, impulseResponsePadded, newsize);
 
-	FFTConvolve(multiplied-1, newsize/2, -1);
+	FFTConvolve(multiplied-1, newsize >> 1, -1);
 
 	// Scale and Find min/max
 	double min, max;
@@ -87,15 +87,15 @@ WavData * Convolver::FFTConvolve(WavData drySound, WavData impulseResponse)
 	for(i = 0; i < newsize - 2; i+=4)
 	{
 		multiplied[i] = Normalize(multiplied[i], min, max, -1, 1);
-		convolved->getData()[i/2] = rint(multiplied[i] * SHRT_MAX);
+		convolved->getData()[i >> 1] = rint(multiplied[i] * SHRT_MAX);
 
 		multiplied[i+2] = Normalize(multiplied[i+2], min, max, -1, 1);
-		convolved->getData()[(i+2)/2] = rint(multiplied[i+2] * SHRT_MAX);
+		convolved->getData()[(i+2) >> 1] = rint(multiplied[i+2] * SHRT_MAX);
 	}
 	if(i == newsize - 2)
 	{
 		multiplied[i] = Normalize(multiplied[i], min, max, -1, 1);
-		convolved->getData()[i/2] = rint(multiplied[i] * SHRT_MAX);
+		convolved->getData()[i >> 1] = rint(multiplied[i] * SHRT_MAX);
 	}
 
 	delete[] drySoundPadded;
