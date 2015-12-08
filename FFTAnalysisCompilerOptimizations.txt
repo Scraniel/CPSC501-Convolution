@@ -3,38 +3,39 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  ms/call  ms/call  name    
- 93.73      0.59     0.59        6    98.42    98.42  Convolver::FFTConvolve(double*, unsigned long, int)
-  3.18      0.61     0.02        2    10.01   311.11  Convolver::FFTConvolve(WavData, WavData)
-  1.59      0.62     0.01        6     1.67     1.67  Convolver::ZeroPadding(short const*, int const&, int const&)
-  1.59      0.63     0.01        4     2.50     2.50  Convolver::ComplexMultiplication(double const*, double const*, int const&)
-  0.00      0.63     0.00  1688610     0.00     0.00  WavData::getNumberOfSamples()
-  0.00      0.63     0.00   639995     0.00     0.00  WavData::getData()
-  0.00      0.63     0.00   639978     0.00     0.00  WavData::fwriteShortLSB(short, _IO_FILE*)
-  0.00      0.63     0.00        9     0.00     0.00  WavData::setChannels(short)
-  0.00      0.63     0.00        9     0.00     0.00  WavData::setNumSamples(unsigned long)
-  0.00      0.63     0.00        9     0.00     0.00  WavData::setSampleRate(unsigned long)
-  0.00      0.63     0.00        9     0.00     0.00  WavData::setBitsPerSample(short)
-  0.00      0.63     0.00        9     0.00     0.00  WavData::setData(short*)
-  0.00      0.63     0.00        6     0.00     0.00  WavData::getChannels()
-  0.00      0.63     0.00        6     0.00     0.00  WavData::getBitsPerSample()
-  0.00      0.63     0.00        5     0.00     0.00  WavData::fwriteIntLSB(int, _IO_FILE*)
-  0.00      0.63     0.00        4     0.00     0.00  Convolver::NextHighestPowerOf2(long)
-  0.00      0.63     0.00        3     0.00     0.00  WavData::getSampleRate()
-  0.00      0.63     0.00        2     0.00     0.00  WavData::loadWaveFile(char*)
-  0.00      0.63     0.00        2     0.00     0.00  WavData::equals(WavData)
-  0.00      0.63     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN7WavData12loadWaveFileEPc
-  0.00      0.63     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN9ConvolverC2Ev
-  0.00      0.63     0.00        1     0.00     0.00  _GLOBAL__sub_I_main
-  0.00      0.63     0.00        1     0.00     0.00  WavData::writeWaveFile(_IO_FILE*)
-  0.00      0.63     0.00        1     0.00     0.00  Convolver::test_Normalize()
-  0.00      0.63     0.00        1     0.00   311.11  Convolver::test_FFTConvolve()
-  0.00      0.63     0.00        1     0.00     3.34  Convolver::test_ZeroPadding()
-  0.00      0.63     0.00        1     0.00     0.00  Convolver::TimeDomainConvolve(WavData, WavData)
-  0.00      0.63     0.00        1     0.00     0.00  Convolver::TimeDomainConvolve(double const*, int const&, double const*, int const&, double*, int const&)
-  0.00      0.63     0.00        1     0.00     0.00  Convolver::test_TimeDomainConvolve()
-  0.00      0.63     0.00        1     0.00     0.00  Convolver::test_NextHighestPowerOf2()
-  0.00      0.63     0.00        1     0.00     5.00  Convolver::test_ComplexMultiplication()
-  0.00      0.63     0.00        1     0.00   319.45  Convolver::RunTests()
+ 98.36      0.57     0.57        6    95.09    95.09  Convolver::FFTConvolve(double*, unsigned long, int)
+  1.73      0.58     0.01        2     5.00     5.00  Convolver::FindMinMaxAndScale(double*, int const&, double&, double&, double const&)
+  0.00      0.58     0.00   640030     0.00     0.00  WavData::getNumberOfSamples()
+  0.00      0.58     0.00   639995     0.00     0.00  WavData::getData()
+  0.00      0.58     0.00   639978     0.00     0.00  WavData::fwriteShortLSB(short, _IO_FILE*)
+  0.00      0.58     0.00        9     0.00     0.00  WavData::setChannels(short)
+  0.00      0.58     0.00        9     0.00     0.00  WavData::setNumSamples(unsigned long)
+  0.00      0.58     0.00        9     0.00     0.00  WavData::setSampleRate(unsigned long)
+  0.00      0.58     0.00        9     0.00     0.00  WavData::setBitsPerSample(short)
+  0.00      0.58     0.00        9     0.00     0.00  WavData::setData(short*)
+  0.00      0.58     0.00        6     0.00     0.00  WavData::getChannels()
+  0.00      0.58     0.00        6     0.00     0.00  WavData::getBitsPerSample()
+  0.00      0.58     0.00        6     0.00     0.00  Convolver::ZeroPadding(short const*, int const&, int const&)
+  0.00      0.58     0.00        5     0.00     0.00  WavData::fwriteIntLSB(int, _IO_FILE*)
+  0.00      0.58     0.00        4     0.00     0.00  Convolver::NextHighestPowerOf2(long)
+  0.00      0.58     0.00        4     0.00     0.00  Convolver::ComplexMultiplication(double const*, double const*, int const&)
+  0.00      0.58     0.00        3     0.00     0.00  WavData::getSampleRate()
+  0.00      0.58     0.00        2     0.00     0.00  WavData::loadWaveFile(char*)
+  0.00      0.58     0.00        2     0.00     0.00  WavData::equals(WavData)
+  0.00      0.58     0.00        2     0.00   290.26  Convolver::FFTConvolve(WavData, WavData)
+  0.00      0.58     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN7WavData12loadWaveFileEPc
+  0.00      0.58     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN9ConvolverC2Ev
+  0.00      0.58     0.00        1     0.00     0.00  _GLOBAL__sub_I_main
+  0.00      0.58     0.00        1     0.00     0.00  WavData::writeWaveFile(_IO_FILE*)
+  0.00      0.58     0.00        1     0.00     0.00  Convolver::test_Normalize()
+  0.00      0.58     0.00        1     0.00   290.26  Convolver::test_FFTConvolve()
+  0.00      0.58     0.00        1     0.00     0.00  Convolver::test_ZeroPadding()
+  0.00      0.58     0.00        1     0.00     0.00  Convolver::TimeDomainConvolve(WavData, WavData)
+  0.00      0.58     0.00        1     0.00     0.00  Convolver::TimeDomainConvolve(double const*, int const&, double const*, int const&, double*, int const&)
+  0.00      0.58     0.00        1     0.00     0.00  Convolver::test_TimeDomainConvolve()
+  0.00      0.58     0.00        1     0.00     0.00  Convolver::test_NextHighestPowerOf2()
+  0.00      0.58     0.00        1     0.00     0.00  Convolver::test_ComplexMultiplication()
+  0.00      0.58     0.00        1     0.00   290.26  Convolver::RunTests()
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -72,186 +73,190 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 2 byte(s) for 1.59% of 0.63 seconds
+granularity: each sample hit covers 2 byte(s) for 1.72% of 0.58 seconds
 
 index % time    self  children    called     name
                                                  <spontaneous>
-[1]    100.0    0.00    0.63                 main [1]
-                0.00    0.32       1/1           Convolver::RunTests() [4]
-                0.01    0.30       1/2           Convolver::FFTConvolve(WavData, WavData) [2]
-                0.00    0.00       2/2           WavData::loadWaveFile(char*) [29]
-                0.00    0.00       1/1           WavData::writeWaveFile(_IO_FILE*) [34]
+[1]    100.0    0.00    0.58                 main [1]
+                0.00    0.29       1/1           Convolver::RunTests() [5]
+                0.00    0.29       1/2           Convolver::FFTConvolve(WavData, WavData) [2]
+                0.00    0.00       2/2           WavData::loadWaveFile(char*) [28]
+                0.00    0.00       1/1           WavData::writeWaveFile(_IO_FILE*) [33]
 -----------------------------------------------
-                0.01    0.30       1/2           Convolver::test_FFTConvolve() [5]
-                0.01    0.30       1/2           main [1]
-[2]     98.7    0.02    0.60       2         Convolver::FFTConvolve(WavData, WavData) [2]
-                0.59    0.00       6/6           Convolver::FFTConvolve(double*, unsigned long, int) [3]
-                0.01    0.00       4/6           Convolver::ZeroPadding(short const*, int const&, int const&) [6]
-                0.01    0.00       2/4           Convolver::ComplexMultiplication(double const*, double const*, int const&) [7]
-                0.00    0.00 1688574/1688610     WavData::getNumberOfSamples() [16]
-                0.00    0.00  639982/639995      WavData::getData() [17]
-                0.00    0.00       4/6           WavData::getChannels() [24]
-                0.00    0.00       4/6           WavData::getBitsPerSample() [25]
-                0.00    0.00       2/9           WavData::setChannels(short) [19]
-                0.00    0.00       2/9           WavData::setNumSamples(unsigned long) [20]
-                0.00    0.00       2/3           WavData::getSampleRate() [28]
-                0.00    0.00       2/9           WavData::setBitsPerSample(short) [22]
-                0.00    0.00       2/9           WavData::setSampleRate(unsigned long) [21]
-                0.00    0.00       2/9           WavData::setData(short*) [23]
-                0.00    0.00       2/4           Convolver::NextHighestPowerOf2(long) [27]
+                0.00    0.29       1/2           Convolver::test_FFTConvolve() [4]
+                0.00    0.29       1/2           main [1]
+[2]    100.0    0.00    0.58       2         Convolver::FFTConvolve(WavData, WavData) [2]
+                0.57    0.00       6/6           Convolver::FFTConvolve(double*, unsigned long, int) [3]
+                0.01    0.00       2/2           Convolver::FindMinMaxAndScale(double*, int const&, double&, double&, double const&) [6]
+                0.00    0.00  639994/640030      WavData::getNumberOfSamples() [13]
+                0.00    0.00  639982/639995      WavData::getData() [14]
+                0.00    0.00       4/6           WavData::getChannels() [21]
+                0.00    0.00       4/6           WavData::getBitsPerSample() [22]
+                0.00    0.00       4/6           Convolver::ZeroPadding(short const*, int const&, int const&) [23]
+                0.00    0.00       2/9           WavData::setChannels(short) [16]
+                0.00    0.00       2/9           WavData::setNumSamples(unsigned long) [17]
+                0.00    0.00       2/3           WavData::getSampleRate() [27]
+                0.00    0.00       2/9           WavData::setBitsPerSample(short) [19]
+                0.00    0.00       2/9           WavData::setSampleRate(unsigned long) [18]
+                0.00    0.00       2/9           WavData::setData(short*) [20]
+                0.00    0.00       2/4           Convolver::NextHighestPowerOf2(long) [25]
+                0.00    0.00       2/4           Convolver::ComplexMultiplication(double const*, double const*, int const&) [26]
 -----------------------------------------------
-                0.59    0.00       6/6           Convolver::FFTConvolve(WavData, WavData) [2]
-[3]     93.7    0.59    0.00       6         Convolver::FFTConvolve(double*, unsigned long, int) [3]
+                0.57    0.00       6/6           Convolver::FFTConvolve(WavData, WavData) [2]
+[3]     98.3    0.57    0.00       6         Convolver::FFTConvolve(double*, unsigned long, int) [3]
 -----------------------------------------------
-                0.00    0.32       1/1           main [1]
-[4]     50.7    0.00    0.32       1         Convolver::RunTests() [4]
-                0.00    0.31       1/1           Convolver::test_FFTConvolve() [5]
-                0.00    0.01       1/1           Convolver::test_ComplexMultiplication() [8]
-                0.00    0.00       1/1           Convolver::test_ZeroPadding() [9]
+                0.00    0.29       1/1           Convolver::RunTests() [5]
+[4]     50.0    0.00    0.29       1         Convolver::test_FFTConvolve() [4]
+                0.00    0.29       1/2           Convolver::FFTConvolve(WavData, WavData) [2]
+                0.00    0.00       3/9           WavData::setData(short*) [20]
+                0.00    0.00       3/9           WavData::setNumSamples(unsigned long) [17]
+                0.00    0.00       3/9           WavData::setChannels(short) [16]
+                0.00    0.00       3/9           WavData::setSampleRate(unsigned long) [18]
+                0.00    0.00       3/9           WavData::setBitsPerSample(short) [19]
+                0.00    0.00       1/2           WavData::equals(WavData) [29]
+-----------------------------------------------
+                0.00    0.29       1/1           main [1]
+[5]     50.0    0.00    0.29       1         Convolver::RunTests() [5]
+                0.00    0.29       1/1           Convolver::test_FFTConvolve() [4]
                 0.00    0.00       1/1           Convolver::test_NextHighestPowerOf2() [39]
-                0.00    0.00       1/1           Convolver::test_Normalize() [35]
+                0.00    0.00       1/1           Convolver::test_Normalize() [34]
+                0.00    0.00       1/1           Convolver::test_ComplexMultiplication() [40]
+                0.00    0.00       1/1           Convolver::test_ZeroPadding() [35]
                 0.00    0.00       1/1           Convolver::test_TimeDomainConvolve() [38]
 -----------------------------------------------
-                0.00    0.31       1/1           Convolver::RunTests() [4]
-[5]     49.3    0.00    0.31       1         Convolver::test_FFTConvolve() [5]
-                0.01    0.30       1/2           Convolver::FFTConvolve(WavData, WavData) [2]
-                0.00    0.00       3/9           WavData::setChannels(short) [19]
-                0.00    0.00       3/9           WavData::setData(short*) [23]
-                0.00    0.00       3/9           WavData::setNumSamples(unsigned long) [20]
-                0.00    0.00       3/9           WavData::setSampleRate(unsigned long) [21]
-                0.00    0.00       3/9           WavData::setBitsPerSample(short) [22]
-                0.00    0.00       1/2           WavData::equals(WavData) [30]
+                0.01    0.00       2/2           Convolver::FFTConvolve(WavData, WavData) [2]
+[6]      1.7    0.01    0.00       2         Convolver::FindMinMaxAndScale(double*, int const&, double&, double&, double const&) [6]
 -----------------------------------------------
-                0.00    0.00       2/6           Convolver::test_ZeroPadding() [9]
-                0.01    0.00       4/6           Convolver::FFTConvolve(WavData, WavData) [2]
-[6]      1.6    0.01    0.00       6         Convolver::ZeroPadding(short const*, int const&, int const&) [6]
------------------------------------------------
-                0.01    0.00       2/4           Convolver::FFTConvolve(WavData, WavData) [2]
-                0.01    0.00       2/4           Convolver::test_ComplexMultiplication() [8]
-[7]      1.6    0.01    0.00       4         Convolver::ComplexMultiplication(double const*, double const*, int const&) [7]
------------------------------------------------
-                0.00    0.01       1/1           Convolver::RunTests() [4]
-[8]      0.8    0.00    0.01       1         Convolver::test_ComplexMultiplication() [8]
-                0.01    0.00       2/4           Convolver::ComplexMultiplication(double const*, double const*, int const&) [7]
------------------------------------------------
-                0.00    0.00       1/1           Convolver::RunTests() [4]
-[9]      0.5    0.00    0.00       1         Convolver::test_ZeroPadding() [9]
-                0.00    0.00       2/6           Convolver::ZeroPadding(short const*, int const&, int const&) [6]
------------------------------------------------
-                0.00    0.00      36/1688610     Convolver::TimeDomainConvolve(WavData, WavData) [36]
-                0.00    0.00 1688574/1688610     Convolver::FFTConvolve(WavData, WavData) [2]
-[16]     0.0    0.00    0.00 1688610         WavData::getNumberOfSamples() [16]
+                0.00    0.00      36/640030      Convolver::TimeDomainConvolve(WavData, WavData) [36]
+                0.00    0.00  639994/640030      Convolver::FFTConvolve(WavData, WavData) [2]
+[13]     0.0    0.00    0.00  640030         WavData::getNumberOfSamples() [13]
 -----------------------------------------------
                 0.00    0.00      13/639995      Convolver::TimeDomainConvolve(WavData, WavData) [36]
                 0.00    0.00  639982/639995      Convolver::FFTConvolve(WavData, WavData) [2]
-[17]     0.0    0.00    0.00  639995         WavData::getData() [17]
+[14]     0.0    0.00    0.00  639995         WavData::getData() [14]
 -----------------------------------------------
-                0.00    0.00  639978/639978      WavData::writeWaveFile(_IO_FILE*) [34]
-[18]     0.0    0.00    0.00  639978         WavData::fwriteShortLSB(short, _IO_FILE*) [18]
------------------------------------------------
-                0.00    0.00       1/9           Convolver::TimeDomainConvolve(WavData, WavData) [36]
-                0.00    0.00       2/9           Convolver::FFTConvolve(WavData, WavData) [2]
-                0.00    0.00       3/9           Convolver::test_TimeDomainConvolve() [38]
-                0.00    0.00       3/9           Convolver::test_FFTConvolve() [5]
-[19]     0.0    0.00    0.00       9         WavData::setChannels(short) [19]
+                0.00    0.00  639978/639978      WavData::writeWaveFile(_IO_FILE*) [33]
+[15]     0.0    0.00    0.00  639978         WavData::fwriteShortLSB(short, _IO_FILE*) [15]
 -----------------------------------------------
                 0.00    0.00       1/9           Convolver::TimeDomainConvolve(WavData, WavData) [36]
                 0.00    0.00       2/9           Convolver::FFTConvolve(WavData, WavData) [2]
                 0.00    0.00       3/9           Convolver::test_TimeDomainConvolve() [38]
-                0.00    0.00       3/9           Convolver::test_FFTConvolve() [5]
-[20]     0.0    0.00    0.00       9         WavData::setNumSamples(unsigned long) [20]
+                0.00    0.00       3/9           Convolver::test_FFTConvolve() [4]
+[16]     0.0    0.00    0.00       9         WavData::setChannels(short) [16]
 -----------------------------------------------
                 0.00    0.00       1/9           Convolver::TimeDomainConvolve(WavData, WavData) [36]
                 0.00    0.00       2/9           Convolver::FFTConvolve(WavData, WavData) [2]
                 0.00    0.00       3/9           Convolver::test_TimeDomainConvolve() [38]
-                0.00    0.00       3/9           Convolver::test_FFTConvolve() [5]
-[21]     0.0    0.00    0.00       9         WavData::setSampleRate(unsigned long) [21]
+                0.00    0.00       3/9           Convolver::test_FFTConvolve() [4]
+[17]     0.0    0.00    0.00       9         WavData::setNumSamples(unsigned long) [17]
 -----------------------------------------------
                 0.00    0.00       1/9           Convolver::TimeDomainConvolve(WavData, WavData) [36]
                 0.00    0.00       2/9           Convolver::FFTConvolve(WavData, WavData) [2]
                 0.00    0.00       3/9           Convolver::test_TimeDomainConvolve() [38]
-                0.00    0.00       3/9           Convolver::test_FFTConvolve() [5]
-[22]     0.0    0.00    0.00       9         WavData::setBitsPerSample(short) [22]
+                0.00    0.00       3/9           Convolver::test_FFTConvolve() [4]
+[18]     0.0    0.00    0.00       9         WavData::setSampleRate(unsigned long) [18]
 -----------------------------------------------
                 0.00    0.00       1/9           Convolver::TimeDomainConvolve(WavData, WavData) [36]
                 0.00    0.00       2/9           Convolver::FFTConvolve(WavData, WavData) [2]
                 0.00    0.00       3/9           Convolver::test_TimeDomainConvolve() [38]
-                0.00    0.00       3/9           Convolver::test_FFTConvolve() [5]
-[23]     0.0    0.00    0.00       9         WavData::setData(short*) [23]
+                0.00    0.00       3/9           Convolver::test_FFTConvolve() [4]
+[19]     0.0    0.00    0.00       9         WavData::setBitsPerSample(short) [19]
+-----------------------------------------------
+                0.00    0.00       1/9           Convolver::TimeDomainConvolve(WavData, WavData) [36]
+                0.00    0.00       2/9           Convolver::FFTConvolve(WavData, WavData) [2]
+                0.00    0.00       3/9           Convolver::test_TimeDomainConvolve() [38]
+                0.00    0.00       3/9           Convolver::test_FFTConvolve() [4]
+[20]     0.0    0.00    0.00       9         WavData::setData(short*) [20]
 -----------------------------------------------
                 0.00    0.00       2/6           Convolver::TimeDomainConvolve(WavData, WavData) [36]
                 0.00    0.00       4/6           Convolver::FFTConvolve(WavData, WavData) [2]
-[24]     0.0    0.00    0.00       6         WavData::getChannels() [24]
+[21]     0.0    0.00    0.00       6         WavData::getChannels() [21]
 -----------------------------------------------
                 0.00    0.00       2/6           Convolver::TimeDomainConvolve(WavData, WavData) [36]
                 0.00    0.00       4/6           Convolver::FFTConvolve(WavData, WavData) [2]
-[25]     0.0    0.00    0.00       6         WavData::getBitsPerSample() [25]
+[22]     0.0    0.00    0.00       6         WavData::getBitsPerSample() [22]
 -----------------------------------------------
-                0.00    0.00       5/5           WavData::writeWaveFile(_IO_FILE*) [34]
-[26]     0.0    0.00    0.00       5         WavData::fwriteIntLSB(int, _IO_FILE*) [26]
+                0.00    0.00       2/6           Convolver::test_ZeroPadding() [35]
+                0.00    0.00       4/6           Convolver::FFTConvolve(WavData, WavData) [2]
+[23]     0.0    0.00    0.00       6         Convolver::ZeroPadding(short const*, int const&, int const&) [23]
+-----------------------------------------------
+                0.00    0.00       5/5           WavData::writeWaveFile(_IO_FILE*) [33]
+[24]     0.0    0.00    0.00       5         WavData::fwriteIntLSB(int, _IO_FILE*) [24]
 -----------------------------------------------
                 0.00    0.00       2/4           Convolver::FFTConvolve(WavData, WavData) [2]
                 0.00    0.00       2/4           Convolver::test_NextHighestPowerOf2() [39]
-[27]     0.0    0.00    0.00       4         Convolver::NextHighestPowerOf2(long) [27]
+[25]     0.0    0.00    0.00       4         Convolver::NextHighestPowerOf2(long) [25]
+-----------------------------------------------
+                0.00    0.00       2/4           Convolver::FFTConvolve(WavData, WavData) [2]
+                0.00    0.00       2/4           Convolver::test_ComplexMultiplication() [40]
+[26]     0.0    0.00    0.00       4         Convolver::ComplexMultiplication(double const*, double const*, int const&) [26]
 -----------------------------------------------
                 0.00    0.00       1/3           Convolver::TimeDomainConvolve(WavData, WavData) [36]
                 0.00    0.00       2/3           Convolver::FFTConvolve(WavData, WavData) [2]
-[28]     0.0    0.00    0.00       3         WavData::getSampleRate() [28]
+[27]     0.0    0.00    0.00       3         WavData::getSampleRate() [27]
 -----------------------------------------------
                 0.00    0.00       2/2           main [1]
-[29]     0.0    0.00    0.00       2         WavData::loadWaveFile(char*) [29]
+[28]     0.0    0.00    0.00       2         WavData::loadWaveFile(char*) [28]
 -----------------------------------------------
                 0.00    0.00       1/2           Convolver::test_TimeDomainConvolve() [38]
-                0.00    0.00       1/2           Convolver::test_FFTConvolve() [5]
-[30]     0.0    0.00    0.00       2         WavData::equals(WavData) [30]
+                0.00    0.00       1/2           Convolver::test_FFTConvolve() [4]
+[29]     0.0    0.00    0.00       2         WavData::equals(WavData) [29]
 -----------------------------------------------
-                0.00    0.00       1/1           __libc_csu_init [47]
-[31]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN7WavData12loadWaveFileEPc [31]
+                0.00    0.00       1/1           __libc_csu_init [48]
+[30]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN7WavData12loadWaveFileEPc [30]
 -----------------------------------------------
-                0.00    0.00       1/1           __libc_csu_init [47]
-[32]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN9ConvolverC2Ev [32]
+                0.00    0.00       1/1           __libc_csu_init [48]
+[31]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN9ConvolverC2Ev [31]
 -----------------------------------------------
-                0.00    0.00       1/1           __libc_csu_init [47]
-[33]     0.0    0.00    0.00       1         _GLOBAL__sub_I_main [33]
+                0.00    0.00       1/1           __libc_csu_init [48]
+[32]     0.0    0.00    0.00       1         _GLOBAL__sub_I_main [32]
 -----------------------------------------------
                 0.00    0.00       1/1           main [1]
-[34]     0.0    0.00    0.00       1         WavData::writeWaveFile(_IO_FILE*) [34]
-                0.00    0.00  639978/639978      WavData::fwriteShortLSB(short, _IO_FILE*) [18]
-                0.00    0.00       5/5           WavData::fwriteIntLSB(int, _IO_FILE*) [26]
+[33]     0.0    0.00    0.00       1         WavData::writeWaveFile(_IO_FILE*) [33]
+                0.00    0.00  639978/639978      WavData::fwriteShortLSB(short, _IO_FILE*) [15]
+                0.00    0.00       5/5           WavData::fwriteIntLSB(int, _IO_FILE*) [24]
 -----------------------------------------------
-                0.00    0.00       1/1           Convolver::RunTests() [4]
-[35]     0.0    0.00    0.00       1         Convolver::test_Normalize() [35]
+                0.00    0.00       1/1           Convolver::RunTests() [5]
+[34]     0.0    0.00    0.00       1         Convolver::test_Normalize() [34]
+-----------------------------------------------
+                0.00    0.00       1/1           Convolver::RunTests() [5]
+[35]     0.0    0.00    0.00       1         Convolver::test_ZeroPadding() [35]
+                0.00    0.00       2/6           Convolver::ZeroPadding(short const*, int const&, int const&) [23]
 -----------------------------------------------
                 0.00    0.00       1/1           Convolver::test_TimeDomainConvolve() [38]
 [36]     0.0    0.00    0.00       1         Convolver::TimeDomainConvolve(WavData, WavData) [36]
-                0.00    0.00      36/1688610     WavData::getNumberOfSamples() [16]
-                0.00    0.00      13/639995      WavData::getData() [17]
-                0.00    0.00       2/6           WavData::getChannels() [24]
-                0.00    0.00       2/6           WavData::getBitsPerSample() [25]
-                0.00    0.00       1/9           WavData::setChannels(short) [19]
-                0.00    0.00       1/9           WavData::setNumSamples(unsigned long) [20]
-                0.00    0.00       1/9           WavData::setBitsPerSample(short) [22]
-                0.00    0.00       1/3           WavData::getSampleRate() [28]
-                0.00    0.00       1/9           WavData::setSampleRate(unsigned long) [21]
-                0.00    0.00       1/9           WavData::setData(short*) [23]
+                0.00    0.00      36/640030      WavData::getNumberOfSamples() [13]
+                0.00    0.00      13/639995      WavData::getData() [14]
+                0.00    0.00       2/6           WavData::getChannels() [21]
+                0.00    0.00       2/6           WavData::getBitsPerSample() [22]
+                0.00    0.00       1/9           WavData::setChannels(short) [16]
+                0.00    0.00       1/9           WavData::setNumSamples(unsigned long) [17]
+                0.00    0.00       1/9           WavData::setBitsPerSample(short) [19]
+                0.00    0.00       1/9           WavData::setSampleRate(unsigned long) [18]
+                0.00    0.00       1/3           WavData::getSampleRate() [27]
+                0.00    0.00       1/9           WavData::setData(short*) [20]
                 0.00    0.00       1/1           Convolver::TimeDomainConvolve(double const*, int const&, double const*, int const&, double*, int const&) [37]
 -----------------------------------------------
                 0.00    0.00       1/1           Convolver::TimeDomainConvolve(WavData, WavData) [36]
 [37]     0.0    0.00    0.00       1         Convolver::TimeDomainConvolve(double const*, int const&, double const*, int const&, double*, int const&) [37]
 -----------------------------------------------
-                0.00    0.00       1/1           Convolver::RunTests() [4]
+                0.00    0.00       1/1           Convolver::RunTests() [5]
 [38]     0.0    0.00    0.00       1         Convolver::test_TimeDomainConvolve() [38]
-                0.00    0.00       3/9           WavData::setData(short*) [23]
-                0.00    0.00       3/9           WavData::setChannels(short) [19]
-                0.00    0.00       3/9           WavData::setNumSamples(unsigned long) [20]
-                0.00    0.00       3/9           WavData::setSampleRate(unsigned long) [21]
-                0.00    0.00       3/9           WavData::setBitsPerSample(short) [22]
+                0.00    0.00       3/9           WavData::setData(short*) [20]
+                0.00    0.00       3/9           WavData::setChannels(short) [16]
+                0.00    0.00       3/9           WavData::setNumSamples(unsigned long) [17]
+                0.00    0.00       3/9           WavData::setSampleRate(unsigned long) [18]
+                0.00    0.00       3/9           WavData::setBitsPerSample(short) [19]
                 0.00    0.00       1/1           Convolver::TimeDomainConvolve(WavData, WavData) [36]
-                0.00    0.00       1/2           WavData::equals(WavData) [30]
+                0.00    0.00       1/2           WavData::equals(WavData) [29]
 -----------------------------------------------
-                0.00    0.00       1/1           Convolver::RunTests() [4]
+                0.00    0.00       1/1           Convolver::RunTests() [5]
 [39]     0.0    0.00    0.00       1         Convolver::test_NextHighestPowerOf2() [39]
-                0.00    0.00       2/4           Convolver::NextHighestPowerOf2(long) [27]
+                0.00    0.00       2/4           Convolver::NextHighestPowerOf2(long) [25]
+-----------------------------------------------
+                0.00    0.00       1/1           Convolver::RunTests() [5]
+[40]     0.0    0.00    0.00       1         Convolver::test_ComplexMultiplication() [40]
+                0.00    0.00       2/4           Convolver::ComplexMultiplication(double const*, double const*, int const&) [26]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -344,14 +349,14 @@ notice and this notice are preserved.
 
 Index by function name
 
-  [31] _GLOBAL__sub_I__ZN7WavData12loadWaveFileEPc (WavData.cpp) [18] WavData::fwriteShortLSB(short, _IO_FILE*) [5] Convolver::test_FFTConvolve()
-  [32] _GLOBAL__sub_I__ZN9ConvolverC2Ev (Convolver.cpp) [25] WavData::getBitsPerSample() [9] Convolver::test_ZeroPadding()
-  [33] _GLOBAL__sub_I_main (Driver.cpp) [22] WavData::setBitsPerSample(short) [36] Convolver::TimeDomainConvolve(WavData, WavData)
-  [24] WavData::getChannels() [16] WavData::getNumberOfSamples() [37] Convolver::TimeDomainConvolve(double const*, int const&, double const*, int const&, double*, int const&)
-  [19] WavData::setChannels(short) [30] WavData::equals(WavData) [27] Convolver::NextHighestPowerOf2(long)
-  [26] WavData::fwriteIntLSB(int, _IO_FILE*) [17] WavData::getData() [7] Convolver::ComplexMultiplication(double const*, double const*, int const&)
-  [29] WavData::loadWaveFile(char*) [23] WavData::setData(short*) [38] Convolver::test_TimeDomainConvolve()
-  [28] WavData::getSampleRate() [2] Convolver::FFTConvolve(WavData, WavData) [39] Convolver::test_NextHighestPowerOf2()
-  [20] WavData::setNumSamples(unsigned long) [3] Convolver::FFTConvolve(double*, unsigned long, int) [8] Convolver::test_ComplexMultiplication()
-  [21] WavData::setSampleRate(unsigned long) [6] Convolver::ZeroPadding(short const*, int const&, int const&) [4] Convolver::RunTests()
-  [34] WavData::writeWaveFile(_IO_FILE*) [35] Convolver::test_Normalize()
+  [30] _GLOBAL__sub_I__ZN7WavData12loadWaveFileEPc (WavData.cpp) [15] WavData::fwriteShortLSB(short, _IO_FILE*) [4] Convolver::test_FFTConvolve()
+  [31] _GLOBAL__sub_I__ZN9ConvolverC2Ev (Convolver.cpp) [22] WavData::getBitsPerSample() [35] Convolver::test_ZeroPadding()
+  [32] _GLOBAL__sub_I_main (Driver.cpp) [19] WavData::setBitsPerSample(short) [6] Convolver::FindMinMaxAndScale(double*, int const&, double&, double&, double const&)
+  [21] WavData::getChannels() [13] WavData::getNumberOfSamples() [36] Convolver::TimeDomainConvolve(WavData, WavData)
+  [16] WavData::setChannels(short) [29] WavData::equals(WavData) [37] Convolver::TimeDomainConvolve(double const*, int const&, double const*, int const&, double*, int const&)
+  [24] WavData::fwriteIntLSB(int, _IO_FILE*) [14] WavData::getData() [25] Convolver::NextHighestPowerOf2(long)
+  [28] WavData::loadWaveFile(char*) [20] WavData::setData(short*) [26] Convolver::ComplexMultiplication(double const*, double const*, int const&)
+  [27] WavData::getSampleRate() [2] Convolver::FFTConvolve(WavData, WavData) [38] Convolver::test_TimeDomainConvolve()
+  [17] WavData::setNumSamples(unsigned long) [3] Convolver::FFTConvolve(double*, unsigned long, int) [39] Convolver::test_NextHighestPowerOf2()
+  [18] WavData::setSampleRate(unsigned long) [23] Convolver::ZeroPadding(short const*, int const&, int const&) [40] Convolver::test_ComplexMultiplication()
+  [33] WavData::writeWaveFile(_IO_FILE*) [34] Convolver::test_Normalize() [5] Convolver::RunTests()

@@ -13,7 +13,23 @@ Convolver::Convolver() {
 
 }
 
+void Convolver::FindMinMaxAndScale(double array[], const int & length, double & min, double & max, const double & scale)
+{
+	min = array[0]/scale;
+	max = min;
+	double current;
+	for(int i =0; i < length; i+=2)
+	{
+		array[i] /= scale;
+		current = array[i];
 
+		if(current < min)
+			min = current;
+		if(current > max)
+			max = current;
+	}
+
+}
 
 WavData * Convolver::FFTConvolve(WavData drySound, WavData impulseResponse)
 {
@@ -42,19 +58,8 @@ WavData * Convolver::FFTConvolve(WavData drySound, WavData impulseResponse)
 	FFTConvolve(multiplied-1, newsize/2, -1);
 
 	// Scale and Find min/max
-	double min = multiplied[0]/(double)drySound.getNumberOfSamples();
-	double max = min;
-	double current;
-	for(int i =0; i < newsize; i+=2)
-	{
-		multiplied[i] /= (double)drySound.getNumberOfSamples();
-		current = multiplied[i];
-
-		if(current < min)
-			min = current;
-		if(current > max)
-			max = current;
-	}
+	double min, max;
+	FindMinMaxAndScale(multiplied, newsize, min, max, drySound.getNumberOfSamples());
 
 	// Normalize the values between -1 and 1
 	for(int i = 0; i < newsize; i++)
