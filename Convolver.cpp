@@ -18,7 +18,26 @@ void Convolver::FindMinMaxAndScale(double array[], const int & length, double & 
 	min = array[0]/scale;
 	max = min;
 	double current;
-	for(int i =0; i < length; i+=2)
+	int i;
+	for(i =0; i < length-2; i+=4)
+	{
+		array[i] /= scale;
+		current = array[i];
+
+		if(current < min)
+			min = current;
+		if(current > max)
+			max = current;
+
+		array[i+2] /= scale;
+		current = array[i+2];
+
+		if(current < min)
+			min = current;
+		if(current > max)
+			max = current;
+	}
+	if(i == length - 2)
 	{
 		array[i] /= scale;
 		current = array[i];
@@ -62,9 +81,18 @@ WavData * Convolver::FFTConvolve(WavData drySound, WavData impulseResponse)
 	FindMinMaxAndScale(multiplied, newsize, min, max, drySound.getNumberOfSamples());
 
 
-	// Jamming optimization
+	// Jamming optimization & partial unrolling
 	// Normalize the values between -1 and 1
-	for(int i = 0; i < newsize; i+=2)
+	int i;
+	for(i = 0; i < newsize - 2; i+=4)
+	{
+		multiplied[i] = Normalize(multiplied[i], min, max, -1, 1);
+		convolved->getData()[i/2] = rint(multiplied[i] * SHRT_MAX);
+
+		multiplied[i+2] = Normalize(multiplied[i+2], min, max, -1, 1);
+		convolved->getData()[(i+2)/2] = rint(multiplied[i+2] * SHRT_MAX);
+	}
+	if(i == newsize - 2)
 	{
 		multiplied[i] = Normalize(multiplied[i], min, max, -1, 1);
 		convolved->getData()[i/2] = rint(multiplied[i] * SHRT_MAX);
@@ -167,17 +195,41 @@ void Convolver::FFTConvolve(double data[], unsigned long nn, int isign)
     n = nn << 1;
     j = 1;
 
-    for (i = 1; i < n; i += 2) {
-	if (j > i) {
-	    SWAP(data[j], data[i]);
-	    SWAP(data[j+1], data[i+1]);
-	}
-	m = nn;
-	while (m >= 2 && j > m) {
-	    j -= m;
-	    m >>= 1;
-	}
-	j += m;
+    for (i = 1; i < n-2; i += 4) {
+		if (j > i) {
+			SWAP(data[j], data[i]);
+			SWAP(data[j+1], data[i+1]);
+		}
+		m = nn;
+		while (m >= 2 && j > m) {
+			j -= m;
+			m >>= 1;
+		}
+		j += m;
+
+		if (j > i+2) {
+			SWAP(data[j], data[i+2]);
+			SWAP(data[j+1], data[i+3]);
+		}
+		m = nn;
+		while (m >= 2 && j > m) {
+			j -= m;
+			m >>= 1;
+		}
+		j += m;
+    }
+    if(i == n-2)
+    {
+    	if (j > i) {
+			SWAP(data[j], data[i]);
+			SWAP(data[j+1], data[i+1]);
+		}
+		m = nn;
+		while (m >= 2 && j > m) {
+			j -= m;
+			m >>= 1;
+		}
+		j += m;
     }
 
     mmax = 2;
