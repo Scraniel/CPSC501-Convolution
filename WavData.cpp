@@ -99,6 +99,26 @@ void WavData::setBitsPerSample(short bitsPerSample)
 	this->bitsPerSample = bitsPerSample;
 }
 
+bool WavData::equals(WavData comparing)
+{
+	bool result = true;
+
+	result = result && (comparing.getBitsPerSample() == bitsPerSample);
+	result = result && (comparing.getChannels() == channels);
+	result = result && (comparing.getNumberOfSamples() == samples);
+	result = result && (comparing.getSampleRate() == sampleRate);
+
+	if(result)
+	{
+		for(int i = 0; i < samples; i++)
+		{
+			result = result && (comparing.getData()[i] == data[i]);
+		}
+	}
+
+	return result;
+}
+
 /******************************************************************************
 *		Author: 		Dr. Leonard Manzara
 *		Modified By: 	Daniel Lewis

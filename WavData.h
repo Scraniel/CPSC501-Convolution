@@ -35,6 +35,8 @@ class WavData {
         void setNumSamples(unsigned long);
         void setSampleRate(unsigned long);
         void setBitsPerSample(short);
+
+        bool equals(WavData);
 	private:
         short* data;
         unsigned long samples;
