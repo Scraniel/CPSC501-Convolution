@@ -27,6 +27,7 @@ private:
 	static long NextHighestPowerOf2(long);
 	static double * ZeroPadding(const short [], const int &, const int &);
 	static double * ComplexMultiplication(const double [], const double [], const int & );
+	static void FindMinMaxAndScale(double [], const int &, double &, double &, const double &);
 
 	/*** TESTS ***/
 	static bool test_Normalize();

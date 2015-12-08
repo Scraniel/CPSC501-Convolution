@@ -13,6 +13,8 @@ Convolver::Convolver() {
 
 }
 
+
+
 WavData * Convolver::FFTConvolve(WavData drySound, WavData impulseResponse)
 {
 	WavData * convolved = new WavData();
